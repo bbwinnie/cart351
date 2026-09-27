@@ -15,7 +15,7 @@ print("Expected output: 7")
 # Task 1: Add parentheses to the Python statement below so that it prints
 # out the number 7.
 
-print(10 + 4 / 2)
+print(int((10 + 4) / 2))
 
 #------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ print("Expected output: True")
 # Task 2: Change the operator in the statement below so that it displays
 # "True" instead of "False."
 
-print(14 > 15)
+print(14 < 15)
 
 #------------------------------------------------------------------------
 
@@ -37,14 +37,14 @@ print("Expected output: 54")
 # Task 3: Change the variable assignment below so that the print statement
 # displays "54." (Don't change the print statement!)
 
-a_num_variable = 17
+a_num_variable = 54
 print(a_num_variable)
 
 #------------------------------------------------------------------------
 
 print("\n------")
 print("Task 4: Types")
-print("Expected output: ")
+print("Expected output: <class 'str'>")
 
 # Task 4: Three variables are assigned below, all with different types.
 # Replace the word "None" inside the parentheses of type() in the print
@@ -53,7 +53,7 @@ print("Expected output: ")
 x = 14
 y = 17.4
 z = "today is a fine day for sailing!"
-print(type(None))
+print(type(z))
 
 #------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ print("Expected output: 51")
 
 first_line = "It was the best of times."
 second_line = "It was the worst of times."
-print() # your code here!
+print(len(first_line) + len(second_line)) # your code here!
 
 #------------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ print("Expected output: 25")
 # called "aStringSentence." Use the .find() method.
 
 aStringSentence = "Did the cat jump out the window yesterday?"
-print() # your code here!
+print(aStringSentence.find("window")) # your code here!
 
 #------------------------------------------------------------------------
 
@@ -93,7 +93,7 @@ print("Expected output: someone who has spent too much time")
 # of the variable "partLy", but with all white space removed from
 # the beginning and end of the string. Use the .strip() method.
 
-partLy = "     someone who has spent too much time    \n"
+partLy = "     someone who has spent too much time    \n".strip()
 print(partLy)
 
 #------------------------------------------------------------------------
@@ -107,7 +107,7 @@ print("Expected output: SOMEONE WHO HAS SPENT TOO MUCH TIME")
 # the string, with all whitespace removed, and with all letters converted to
 # uppercase. Use the .upper() method.
 
-print() # your code here!
+print(partLy.upper()) # your code here!
 
 #------------------------------------------------------------------------
 
@@ -118,7 +118,7 @@ print("Expected output: p")
 # Task 9: Modify the value assigned to variable "offset" below so that
 # the following "print" statement displays the letter "p".
 
-offset = 0
+offset = 1
 print("apple"[offset])
 
 #------------------------------------------------------------------------
@@ -133,7 +133,7 @@ print("Expected output: jump")
 start = 0
 end = 10
 aStringSentenceAgain = "Did the cat jump out the window yesterday?"
-print(aStringSentenceAgain[start:end])
+print(aStringSentenceAgain[12:16])
 
 #------------------------------------------------------------------------
 
@@ -144,7 +144,7 @@ print("Expected output: 100")
 # Task 11: Modify the statement below so that it displays the number 100.
 # Do this using the int() function (hint: you need to use it twice).
 
-print("19" + "81")
+print(int("19") +int("81"))
 #------------------------------------------------------------------------
 
 print("\n------")
@@ -157,6 +157,8 @@ print("Expected output: test_var is less than 200")
 test_var = 90
 if test_var > 200:	
 	print("test_var is greater than 200!")
+else:
+	print("test_var is less than 200")
 #------------------------------------------------------------------------
 
 print("\n------")
@@ -167,7 +169,7 @@ print("Expected output: the condition test passed")
 # 'the condition test passed'. Do not change the values of the varaibles.
 test_var_three = 400
 test_var_two = 800
-if test_var_three > 200 and test_var_two < 400:	
+if test_var_three > 200 or test_var_two < 400:	
 	print("the condition test passed")
 else:
 	print("the condition test not passed")
@@ -182,7 +184,7 @@ print("Expected output: alpha")
 # that it prints "alpha" (instead of "beta").
 
 greek = ["alpha", "beta", "gamma", "delta", "epsilon"]
-print(greek[1])
+print(greek[0])
 
 #------------------------------------------------------------------------
 
