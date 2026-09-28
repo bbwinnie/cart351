@@ -198,7 +198,7 @@ print("Expected output: ['beta', 'gamma', 'delta']")
 
 start = 0
 finish = 6
-print(greek[start:finish])
+print(greek[1:4])
 
 #------------------------------------------------------------------------
 
@@ -211,7 +211,7 @@ print("Expected output: ['delta', 'epsilon']")
 # Use a negative number for "foo".
 
 foo = 0
-print(greek[foo:])
+print(greek[-2:])
 
 #------------------------------------------------------------------------
 
@@ -223,7 +223,7 @@ print("Expected output: True")
 # that the print statement displays "True."
 
 vegetables= ["aubergines", "carrots", "turnips", "fiddleheads", "artichokes"]
-word_to_look_for = "carret"
+word_to_look_for = "carrots"
 print(word_to_look_for in vegetables)
 
 #------------------------------------------------------------------------
@@ -235,7 +235,7 @@ print("Expected output: ['artichokes', 'aubergines', 'carrots', 'fiddleheads', '
 # Task 18: Change the expression below so that the print statement displays
 # the list "vegetables" (defined above) in alphabetical order. (Use the "sort"
 # function.
-
+vegetables.sort()
 print(vegetables)
 
 #------------------------------------------------------------------------
@@ -249,6 +249,7 @@ print("Expected output: ['artichokes', 'aubergines', 'carrots', 'fiddleheads', '
 # list.
 
 # write your statement here
+vegetables.append("radishes")
 print(vegetables)
 
 #------------------------------------------------------------------------
@@ -267,8 +268,8 @@ print("  radishes")
 # "vegetables" (defined above). (The list should contain the item that you
 # added to the list in task 17.)
 
-
-
+for el in vegetables:
+	print(f"{el}")
 
 #------------------------------------------------------------------------
 
@@ -282,12 +283,13 @@ print("  Fiddleheads")
 print("  Turnips")
 print("  Radishes")
 
-
 # Task 21: Write a "for" loop below that prints out each item in the list
 # "vegetables" (defined above), but with the first letter of each item capitalized.
 # (The list should contain the item that you added to the list in task 17.)
 
 
+for el in vegetables:
+	print(f"{el}".title())
 
 
 #------------------------------------------------------------------------
