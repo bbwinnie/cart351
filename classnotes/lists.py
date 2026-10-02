@@ -61,6 +61,18 @@
 # print(rList)
 
 
+# greek = ["alpha", "beta", "gamma", "delta", "epsilon","zeta"]
+# new_letters = "eta theta"
+# new_letters_list = new_letters.split(" ") # <-- replace this
+
+# print(new_letters_list)
+
+# 从new letters list 里的element 放进 letter——name里
+# for letter_name in new_letters_list:
+# 	greek.append(letter_name)  # <-- and replace this
+
+# print(greek)
+
 franken_1 = open("data/frankenstein.txt").read()
 #count
 count_my = franken_1.count("my")
