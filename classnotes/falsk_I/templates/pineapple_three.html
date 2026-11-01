@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Variables</title>
+</head>
+
+<body>
+    <h1>pineapples again in flask number three</h1>
+    {# 通过jinja来添加变量注意jinja里变量要用{{}} #}
+    {# <h2>Hello {{ my_variable }}</h2> #}
+    <h2>Hello {{ my_variable }}</h2>
+    <h2>Hello {{ my_list }}</h2>
+    {# index里的第一个元素 #}
+    <h2>{{ my_list[0] }}</h2>
+    {# index 里的第0个到第2个之前结束的元素#}
+    <h2>{{ my_list[0:2] }}</h2>
+
+    {#dictionary: show whole dictionary#}
+    <h2>Hello Dictionary {{ my_dict }}</h2>
+
+    {#access a value in a dictionary#}
+    <h2>Dictionary Item {{ my_dict['color'] }}</h2>
+    <img src="{{ url_for('static', filename='images/pineapple_2.jpg') }}">
+
+    {# {% %} 执行循环、条件判断等逻辑#}
+    <ul>
+        {#从 my_list 中，一个一个地取出元素，暂时存放在 item 里。#}
+        {% for item in my_list %}
+        {#意思是：每次循环创建一个 <li>，显示当前的 item。#}
+        <li style="color:purple">item: {{ item }}</li>
+        {#循环到这里结束 必须写！！！！#}
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

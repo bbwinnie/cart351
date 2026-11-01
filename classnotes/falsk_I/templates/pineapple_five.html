@@ -1,0 +1,25 @@
+{#whether a user is logged in or not #}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>pineapples and users</title>
+</head>
+
+<body>
+    <h1>pineapples and users</h1>
+
+    {% if user_bool %}
+    <p>User is Logged In</p>
+    <img src="{{ url_for('static', filename='images/pineapple_2.jpg') }}">
+
+    {% else %}
+    <p>User is not Logged In</p>
+    <img src="{{ url_for('static', filename='images/Lemon.jpg') }}">
+
+    {% endif %}
+</body>
+
+</html>
