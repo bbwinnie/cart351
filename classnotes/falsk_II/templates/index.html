@@ -1,0 +1,24 @@
+<!-- adding the new thing into base.html   -->
+
+<!-- copy of base -->
+{% extends "base.html" %}
+
+<!-- put all of below in to base.html {} -->
+
+{% block content %}
+<h1>Hi, {{ user.username }}!</h1>
+<section class="flex-intro">
+    <div class="items">
+        {% for item in passedDictionary %}
+
+        <p>The key is: <span class="dict_key">{{item}}</span> and the value is:
+            <span class="dict_value">{{passedDictionary[item]}}</span>
+        </p>
+
+        {% endfor %}
+    </div>
+    <div class="img_div">
+        <img src={{imgPath}} />
+    </div>
+</section>
+{% endblock %}
