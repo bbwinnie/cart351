@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+
+}
+
+h2 {
+
+    font-size: 32px;
+    padding: 5px;
+    background-color: rgb(14, 181, 232);
+    color: rgb(255, 255, 255);
+}
+
+nav {
+    padding-bottom: 5px;
+    background-color: rgb(14, 181, 232);
+}
+
+nav ul {
+    display: flex;
+    justify-content: right;
+
+}
+
+nav ul li {
+    width: 10%;
+    text-transform: uppercase;
+    text-decoration: none;
+    list-style-type: none;
+
+
+}
+
+nav li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+main {
+    margin: 10px;
+    background-color: rgb(229, 236, 245);
+    min-height: calc(82vh);
+}
+
+footer {
+    background-color: rgb(14, 181, 232);
+    min-height: 5vh;
+    padding: 5px;
+    color: rgb(255, 255, 255);
+
+}
+
+/* NASA PAGE */
+
+.nasa-collect {
+    background-color: #101B32;
+    color: white;
+    min-height: 82vh;
+    padding: 70px 20px;
+    box-sizing: border-box;
+}
+
+.formContainer {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* SEARCH FORM */
+
+#insertNasaSpace {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+#insertNasaSpace h1,
+#insertNasaSpace h3,
+#insertNasaSpace h4 {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+#insertNasaSpace h3 {
+    color: #8CAFE7;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+#insertNasaSpace h1 {
+    font-size: 42px;
+}
+
+#insertNasaSpace h4 {
+    color: #C1CDDF;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+#insertNasaSpace label {
+    grid-column: 1 / -1;
+    color: #C1CDDF;
+    font-size: 14px;
+}
+
+#space {
+    background-color: #263750;
+    color: white;
+    border: 1px solid #43526C;
+    border-radius: 8px;
+    padding: 14px;
+    min-width: 0;
+    font-size: 15px;
+}
+
+#space::placeholder {
+    color: #B9C8DC;
+}
+
+#submitBtn {
+    background-color: #4774C7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#submitBtn:hover {
+    background-color: #6090E0;
+}
+
+/* Before searching */
+.emptyResult {
+    padding: 58px 12px 0;
+    color: #9CACCA;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* After searching */
+.spaceResult {
+    margin-top: 34px;
+    padding: 30px;
+    background-color: #192942;
+    border: 1px solid #344B70;
+    border-radius: 14px;
+}
+
+.spaceResult h2 {
+    margin: 0 0 16px;
+    padding: 0;
+    background: transparent;
+    color: #E6EDF8;
+    font-size: 19px;
+}
+
+.spaceResult img {
+    display: block;
+    max-width: 100%;
+    max-height: 480px;
+    width: auto;
+    height: auto;
+    margin: 0 auto 28px;
+    border-radius: 8px;
+}
+
+.spaceResult p {
+    color: #C1CDDF;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
