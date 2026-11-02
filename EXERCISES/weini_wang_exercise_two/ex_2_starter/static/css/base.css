@@ -178,3 +178,22 @@ footer {
     line-height: 1.7;
     overflow-wrap: anywhere;
 }
+
+/* NASA MULTIPLE IMAGE GRID */
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.spaceResult .imageGrid img {
+    width: 100%;
+    height: 200px;
+    max-height: none;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0;
+}

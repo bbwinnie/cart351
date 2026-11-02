@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="nasa-collect">
+    <div class="formContainer">
+
+        <!--form done using more current tags... -->
+        <form id="insertNasaSpace" action="/getSearchCriteria_adv" method="GET">
+
+            <h3> NASA MULRIPLE IMAGE EXPLORER</h3>
+            <h1>Explore the Universe</h1>
+            <h4>Search NASA's multiple image collection</h4>
+
+            <label for="space">Search</label>
+            <input type="text" id="space" name="space" placeholder="Search for space images...">
+
+            <input id="submitBtn" type="submit" name="submit" value="Search" />
+        </form>
+
+        {%if images %}
+        <div class="spaceResult">
+            <h2>Image Result</h2>
+
+            <div class="imageGrid">
+                {% for image in images%}
+                <img src="{{image}}" alt="NASA image">
+                {%endfor%}
+            </div>
+        </div>
+
+        {%else%}
+        <div class="emptyResult">
+            <p>Your next discovery starts here.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
