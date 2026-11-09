@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>SAVE SESSION VARS</h3>
+
+<div class="sessionVars">
+
+    <form id="sessionStore" method="GET" action="/saveSession">
+
+        <p>
+            <label>DATA A:</label>
+            <input type="text" name="data_a" required>
+        </p>
+
+        <p>
+            <label>DATA B:</label>
+            <input type="text" name="data_b" required>
+        </p>
+
+        <p>
+            <input type="submit" value="send">
+        </p>
+
+    </form>
+
+</div>
+
+{% if session['data_a'] %}
+
+<h3>LOAD SESSION VARS</h3>
+
+<p>Data A: {{ session['data_a'] }}</p>
+<p>Data B: {{ session['data_b'] }}</p>
+
+{% endif %}
+
+{% endblock %}

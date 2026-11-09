@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="thank-collect">
+
+    {% if plantData %}
+    <h3>
+        Thank you
+        <span class="highlight">
+            {{ plantData["o_name"] }}
+        </span>
+        for adding a new plant into the plant repo!
+    </h3>
+
+    <p>Additional Plant Info:</p>
+
+    <ul>
+        {% for p_item in plantData %}
+        <li>
+            {{ p_item }}:
+            <span>
+                {{ plantData[p_item] }}
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+
+    <h3>
+        Thank you for adding a new plant!
+    </h3>
+
+    {% endif %}
+</section>
+
+{% endblock %}

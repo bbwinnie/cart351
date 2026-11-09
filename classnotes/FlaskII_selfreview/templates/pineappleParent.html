@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="pineAppleParent">
+
+    <h3>This h3 is in the Pineapple Parent template</h3>
+
+    {#现在的 pine 是留给 Child A 和 Child B 的 一边继承其他模板，一边提供自己的 Block 给其他模板继承。#}
+    {% block pine %}{% endblock %}
+
+</section>
+
+{% endblock %}

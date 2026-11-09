@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if session['data_a'] %}
+
+<h3>A NEW PAGE WITH THE SESSION VARS</h3>
+
+<p>Data A: {{ session['data_a'] }}</p>
+<p>Data B: {{ session['data_b'] }}</p>
+
+<h4>Modify session vars:</h4>
+
+<div class="sessionVars">
+    <form method="GET" action="/modifySession">
+
+        {#value就是让输入框一打开,就已经填好了 Session 中保存的数据。#}
+        <p>
+            <label>DATA A:</label>
+            <input type="text" name="data_a" value="{{ session['data_a'] }}" required>
+        </p>
+
+        <p>
+            <label>DATA B:</label>
+            <input type="text" name="data_b" value="{{ session['data_b'] }}" required>
+        </p>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+    <div class="sessionVars" style="background: rgb(232, 178, 233);">
+
+        <h4>CLICK the button to DELETE session vars:</h4>
+
+        <form method="GET" action="/deleteSession">
+            <input type="submit" value="Delete">
+        </form>
+
+    </div>
+
+    <a href="{{ url_for('inputSessionData') }}">
+        Back to input session vars
+    </a>
+</div>
+
+{% else %}
+
+<h3>NO SESSION VARS</h3>
+
+<a href="{{ url_for('inputSessionData') }}">
+    Back to input session vars
+</a>
+
+{% endif %}
+
+{% endblock %}

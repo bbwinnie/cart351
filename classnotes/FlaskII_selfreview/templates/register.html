@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="register-collect">
+    <div class="formContainer">
+
+        <form id="insertRegForm" action="{{ url_for('reg_thank_you') }}" method="POST">
+            {#action:告诉浏览器，提交表单后要访问哪个 Flask Route /Post: 告诉浏览器，通过 POST 发送数据 #}
+
+            <h3>WELCOME! PLEASE REGISTER BELOW</h3>
+
+            <fieldset>
+                <p>
+                    <label>Last Name:</label>
+                    <input type="text" name="l_name" required>
+                </p>
+
+                <p>
+                    <label>First Name:</label>
+                    <input type="text" name="f_name" required>
+                </p>
+
+                <p>
+                    <label>Email:</label>
+                    <input type="email" name="email_name" required>
+                </p>
+
+                <p>
+                    <label>Password:</label>
+                    <input type="password" name="p_word" required>
+                </p>
+
+                <p>
+                    <input id="submitRegister" type="submit" value="submit my info">
+                </p>
+
+            </fieldset>
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}

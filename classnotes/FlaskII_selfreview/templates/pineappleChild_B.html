@@ -1,0 +1,12 @@
+{% extends "pineappleParent.html" %}
+
+{% block pine %}
+
+<p>PineApple child B!</p>
+
+{#img src="{{ passedImg }}" alt="Pineapple"> #}
+
+{#images/pineapple_2.jpg#}
+<img src="{{ url_for('static', filename='images/' + passedImg) }}" alt="Pineapple">
+
+{% endblock %}
