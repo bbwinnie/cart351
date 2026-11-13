@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Emotion Garden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Emotion Garden</h1>
+        <nav>
+            <ul>
+                <li> <a href="{{url_for('index')}}">Home </a> </li>
+                <li> <a href="{{url_for('garden')}}">Emotion Garden</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+/**** General page style ***/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F6F3E9;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/**** Header ***/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: ceneter;
+    padding: 20px 50px;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    color: #586D55;
+    margin: 0;
+}
+
+/**** Navigation ***/
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    transform: translateY(4px);
+}
+
+nav ul li {
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+nav li a {
+    display: block;
+    text-decoration: none;
+    color: #586D55;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+nav li a:hover {
+    color: #a2b89d;
+}
+
+/**** Main content ***/
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 25px
+}
+
+/**** Home page intro ***/
+
+main h2 {
+    font-size: 40px;
+    font-weight: 600px;
+    color: #586D55;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.intro div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.textIntro {
+    font-size: 20px;
+    line-height: 1.9;
+    color: #77786e;
+    text-align: center;
+    margin: 0 0 35px 0;
+}
+
+/**** button - enter garden ***/
+.intro a {
+    display: inline-block;
+    background-color: #819F7E;
+    color: white;
+    text-decoration: none;
+    padding: 25px 45px;
+    border: radius 30px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.intro a:hover {
+    background-color: #668763;
+    transform: translateY(-3px);
+}

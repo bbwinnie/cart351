@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <title>Emotion Garden</title>
-    <link rel="stylesheet" href="../static/css/base.css">
-</head>
-
-<body>
-    <header>
-        <h1>Emotion Garden</h1>
-        <p>Every feeling grows into a flower</p>
-        <nav>
-            <ul>
-                <li> <a href="{{url_for('index')}}">Home </a> </li>
-                <li> <a href="{{url_for('EmotionGarden')}}">Emotion Garden</a> </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-</body>
-
-</html>
+{% block content %}
+<h2>Every feeling grows into a flower</h2>
+<section class="intro">
+    <div>
+        <p class="textIntro">Everyone has good days and bad days. Sometimes,we have feelings that we don't want to share
+            with our friends
+            or family. This garden is a safe space to express those feelings, whether they are happy, sad, or difficult
+            to explain.<br> Leave your worries, frustration, or happy moments here, and let the garden turn them into
+            beautiful flowers. Every feeling deserves a place to grow.<br>Sometimes, sharing what is on your mind is the
+            first step toward feeling better.</p>
+        <a href="{{url_for('garden')}}">Plant Your Feelings</a>
+    </div>
+</section>
+{% endblock %}
