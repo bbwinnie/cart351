@@ -5,6 +5,7 @@ let positionX;
 let flowerColor;
 let petalCount;
 let flowers = [];
+let sway;
 
 /**
  * SETUP THE CANVAS AND DERGEES UNIT FOR THE CODE
@@ -25,14 +26,14 @@ function setup() {
             x: (i + 0.5) * width / 30 + random(-10, 10),
             y: random(180, 300),
             color: random(['#f8c7c7', '#f5c0f0', '#818cee', '#fee598']),
-            petalCount: int(random(8, 13))
+            petalCount: int(random(7, 13)),
+            off: random(0, 20)
         });
     }
-
 }
 
 /**
- * DARW THE FROG WITH BLINKING EYES WALK ON THE ICELAKE.
+ * DARW THE FLOWERS SWAYING IN THE WIND
 */
 function draw() {
 
@@ -41,7 +42,10 @@ function draw() {
 
     //draw flower
     for (let f of flowers) {
-        flower(f.x, f.y, f.color, f.petalCount);
+        sway = 15 * sin(frameCount * 0.8);
+        f.off += 0.01;
+
+        flower(f.x, f.y, f.color, f.petalCount, sway);
     }
 
 }
@@ -51,7 +55,7 @@ function flower(x, y, flowerColor, petalCount) {
 
     //draw the left leaf
     push();
-    translate(x + 20, y + 100);
+    translate(x + sway * 0.5 + 20, y + 100);
     rotate(150);
     fill('#aae6b4');
     noStroke();
@@ -60,7 +64,7 @@ function flower(x, y, flowerColor, petalCount) {
 
     //draw the right leaf
     push();
-    translate(x - 20, y + 100);
+    translate(x + sway * 0.5 - 20, y + 100);
     rotate(35);
     fill('#aae6b4');
     noStroke();
@@ -71,12 +75,12 @@ function flower(x, y, flowerColor, petalCount) {
     push();
     stroke('#256852');
     strokeWeight(5);
-    line(x, 400, x, y);
+    line(x, 400, x + sway, y);
     pop();
 
     //draw the petal
     push();
-    translate(x, y);
+    translate(x + sway, y);
     noStroke();
     fill(flowerColor);
     for (let i = 0; i < petalCount; i++) {
@@ -89,7 +93,7 @@ function flower(x, y, flowerColor, petalCount) {
     push();
     fill('#faf75b');
     noStroke();
-    ellipse(x, y, 40);
+    ellipse(x + sway, y, 40);
     pop();
 
 }
