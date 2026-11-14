@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="PlantCollect">
+    <div class="feelingContainer">
+        <!--form done using more current tags... -->
+        <form id="insertNasaSpace">
+
+            <h1> Plant Your Feeling</h1>
+            <h2>Every feeling deserves a place to grow.</h2>
+
+            <div class="feelingSelect">
+                <label for="feeling">how are you feeling today</label>
+                <input type="radio" id="happy" name="feeling" value="happy">
+                <label for="happy">😊 Happy</label>
+
+                <input type="radio" id="sad" name="feeling" value="sad">
+                <label for="sad">😢 Sad</label>
+
+                <input type="radio" id="anxious" name="feeling" value="anxious">
+                <label for="anxious">😰 Anxious</label>
+
+                <input type="radio" id="calm" name="feeling" value="calm">
+                <label for="calm">😌 calm</label>
+
+                <input type="radio" id="angry" name="feeling" value="angry">
+                <label for="angry">😠 Angry</label>
+
+                <input type="radio" id="hopeful" name="feeling" value="hopeful">
+                <label for="hopeful">🌱 hopeful</label>
+            </div>
+
+            <div class="range-ui">
+
+                <label for="feelingStrength">How strong is this feeling?</label>
+
+                <div>
+                    <input type="range" id="feelingStrength" name="feelingStrength" min="0" max="10" value="0"
+                        step="1" />
+                </div>
+
+                <div>
+                    <span>Very weak</span>
+                    <span>Very strong</span>
+                </div>
+            </div>
+
+            <div>
+                <label for="feelingNote">Would you like to leave a note?</label>
+                <textarea id="feelingNote" rows="4" cols="50" name="a_descript"></textarea>
+            </div>
+
+            <div>
+                <label></label>
+                <input id="submitFeeling" type="submit" name="submit" value="plant My Feeling" />
+            </div>
+        </form>
+
+    </div>
+</section>
+{% endblock %}
