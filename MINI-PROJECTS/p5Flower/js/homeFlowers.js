@@ -2,8 +2,9 @@
 
 //set the variable
 let positionX;
-let myFlowerColor;
-let myPetalCount;
+let flowerColor;
+let petalCount;
+let flowers = [];
 
 /**
  * SETUP THE CANVAS AND DERGEES UNIT FOR THE CODE
@@ -19,9 +20,14 @@ function setup() {
     // set the position
     positionX = windowWidth / 2;
 
-    //set the color
-    myFlowerColor = random(['#f8c7c7', '#f5c0f0', '#818cee', '#fee598']);
-    myPetalCount = int(random(8, 13));
+    for (let i = 0; i < 30; i++) {
+        flowers.push({
+            x: (i + 0.5) * width / 30 + random(-10, 10),
+            y: random(180, 300),
+            color: random(['#f8c7c7', '#f5c0f0', '#818cee', '#fee598']),
+            petalCount: int(random(8, 13))
+        });
+    }
 
 }
 
@@ -34,15 +40,18 @@ function draw() {
     background(" #F6F3E9");
 
     //draw flower
-    flower();
+    for (let f of flowers) {
+        flower(f.x, f.y, f.color, f.petalCount);
+    }
+
 }
 
 //set the flower
-function flower() {
+function flower(x, y, flowerColor, petalCount) {
 
     //draw the left leaf
     push();
-    translate(positionX + 20, 350);
+    translate(x + 20, y + 100);
     rotate(150);
     fill('#aae6b4');
     noStroke();
@@ -51,7 +60,7 @@ function flower() {
 
     //draw the right leaf
     push();
-    translate(positionX - 20, 340);
+    translate(x - 20, y + 100);
     rotate(35);
     fill('#aae6b4');
     noStroke();
@@ -62,17 +71,17 @@ function flower() {
     push();
     stroke('#256852');
     strokeWeight(5);
-    line(positionX, 400, width / 2, 250);
+    line(x, 400, x, y);
     pop();
 
     //draw the petal
     push();
-    translate(positionX, 250);
+    translate(x, y);
     noStroke();
-    fill(myFlowerColor);
-    for (let i = 0; i < myPetalCount; i++) {
+    fill(flowerColor);
+    for (let i = 0; i < petalCount; i++) {
         ellipse(0, 25, 15, 30);
-        rotate(360 / myPetalCount);
+        rotate(360 / petalCount);
     }
     pop();
 
@@ -80,7 +89,7 @@ function flower() {
     push();
     fill('#faf75b');
     noStroke();
-    ellipse(positionX, 250, 40);
+    ellipse(x, y, 40);
     pop();
 
 }
