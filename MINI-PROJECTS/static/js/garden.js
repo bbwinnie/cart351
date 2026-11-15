@@ -5,13 +5,19 @@ let growth;
 //store the flowers and their information
 let flowers = [];
 
-//get the slider and the number display from HTML
+//get the slider, the number display from HTML , form toggle button and panel
 const feelingStrength = document.getElementById("feelingStrength");
 const strengthValue = document.getElementById("strengthValue");
+const toggleForm = document.getElementById("toggleForm");
+const feelingPanel = document.getElementById("feelingPanel");
 
 //update the number when the user moves the slider
 feelingStrength.addEventListener("input", function () {
     strengthValue.textContent = feelingStrength.value
+})
+
+toggleForm.addEventListener("click", function () {
+    feelingPanel.classList.toggle("open");
 })
 
 //console.log(feelingStrength.value);
@@ -59,17 +65,25 @@ function setup() {
     // set the angle unit by degrees.
     angleMode(DEGREES);
 
-    flowers.push({
-        x: width * 0.7,
-        y: height * 0.5,
-        growth: 0
-    });
+    for (let i = 0; i < 30; i++) {
+        flowers.push({
+            x: random(width * 0.4, width * 0.95),
+            y: random(50, height - 50),
+            color: random(['#f8c7c7', '#f5c0f0', '#818cee', '#fee598']),
+            growth: 1
+        });
+    }
+    // flowers.push({
+    //     x: width * 0.7,
+    //     y: height * 0.5,
+    //     growth: 0
+    // });
 
-    flowers.push({
-        x: width * 0.85,
-        y: height * 0.7,
-        growth: 0.2
-    });
+    // flowers.push({
+    //     x: width * 0.85,
+    //     y: height * 0.7,
+    //     growth: 0.2
+    // });
 }
 
 /**
@@ -86,7 +100,7 @@ function draw() {
         f.growth = min(f.growth + 0.01, 1);
 
         //draw the flower with its own growth
-        flower(f.x, f.y, f.growth);
+        flower(f.x, f.y, f.growth, f.color);
     }
 
 }
@@ -95,14 +109,15 @@ function draw() {
  * Flower
  * Draw a flower that grows from small to big.
  */
-function flower(x, y, growth) {
+function flower(x, y, growth, flowerColor) {
 
     push();
     translate(x, y);
+    rotate(frameCount * 0.1);
     noStroke();
 
     //Draw 10 petals
-    fill('#f5c0f0');
+    fill(flowerColor);
 
     for (let i = 0; i < 10; i++) {
         ellipse(0, 20 * growth, 15 * growth, 30 * growth);
@@ -114,7 +129,7 @@ function flower(x, y, growth) {
     //Draw the flower center
     translate(x, y);
     noStroke();
-    fill('#Faf75b');
+    fill('#faf75b');
     circle(0, 0, 20 * growth);
     pop();
 }
