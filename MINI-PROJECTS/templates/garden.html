@@ -28,28 +28,28 @@
                     <legend>How are you feeling today?</legend>
 
                     <div class="feelingOption">
-                        <input type="radio" id="happy" name="feeling" value="happy">
+                        <input type="radio" id="happy" name="feeling" value="Happy">
                         <label for="happy">😊 Happy</label>
                     </div>
                     <div class="feelingOption">
-                        <input type="radio" id="sad" name="feeling" value="sad">
+                        <input type="radio" id="sad" name="feeling" value="Sad">
                         <label for="sad">😢 Sad</label>
                     </div>
                     <div class="feelingOption">
-                        <input type="radio" id="anxious" name="feeling" value="anxious">
+                        <input type="radio" id="anxious" name="feeling" value="Anxious">
                         <label for="anxious">😰 Anxious</label>
                     </div>
                     <div class="feelingOption">
-                        <input type="radio" id="calm" name="feeling" value="calm">
+                        <input type="radio" id="calm" name="feeling" value="Calm">
                         <label for="calm">😌 calm</label>
                     </div>
                     <div class="feelingOption">
-                        <input type="radio" id="angry" name="feeling" value="angry">
+                        <input type="radio" id="angry" name="feeling" value="Angry">
                         <label for="angry">😠 Angry</label>
                     </div>
 
                     <div class="feelingOption">
-                        <input type="radio" id="hopeful" name="feeling" value="hopeful">
+                        <input type="radio" id="hopeful" name="feeling" value="Hopeful">
                         <label for="hopeful">🌱 hopeful</label>
                     </div>
                 </fieldset>
@@ -86,13 +86,27 @@
     </div>
 
     <button type="button" id="toggleRecords"> 📖 Emotion Records</button>
-    <div class="emotionRecords" id="recordPanel">
+    <div class="emotionRecords" id="recordsPanel">
         <h1> Emotion Records</h1>
-        {%for emotion in emotions%}
-        <p>
-            {{emotion.timestamp}} | {{emotion.feeling}} | {{emotion.intensity}} | {emotion.note}
-        </p>
-        {%endfor%}
+
+        <table>
+            <tr>
+                <th>Time</th>
+                <th>Feeling</th>
+                <th>Intensity</th>
+                <th>Note</th>
+            </tr>
+
+            {%for emotion in emotions%}
+            <tr>
+                <td>{{emotion.timestamp[:16].replace("T", " ")}}</td>
+                <td>{{emotion.feeling}}</td>
+                <td>{{emotion.intensity}}</td>
+                <td>{{emotion.note if emotion.note else"None"}}</td>
+            <tr>
+                {%endfor%}
+
+        </table>
 
     </div>
 

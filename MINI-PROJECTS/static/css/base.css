@@ -387,8 +387,8 @@ main:has(.plantCollect) {
     right: 30px;
     z-index: 3;
 
-    width: 420px;
-    max-width: 70%;
+    width: 600px;
+    max-width: calc(100% - 60px);
     overflow-y: auto;
 
     background-color: #fffcf7;
@@ -405,4 +405,33 @@ main:has(.plantCollect) {
 .emotionRecords.open {
     transform: translateX(0);
     visibility: visible;
+}
+
+/*** emotion records table ***/
+.emotionRecords h1 {
+    font-weight: 500;
+    font-size: 32px;
+    color: #256852;
+    margin: 0 0 8px 0;
+}
+
+.emotionRecords table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.emotionRecords th {
+    background-color: #e0edda;
+    color: #256852;
+    text-align: left;
+    padding: 12px;
+    font-weight: 500;
+}
+
+.emotionRecords td {
+    padding: 12px;
+    color: #77786e;
+    border-bottom: 1px solid #d8d5ce;
+    font-size: 14px;
+    overflow-wrap: anywhere;
 }

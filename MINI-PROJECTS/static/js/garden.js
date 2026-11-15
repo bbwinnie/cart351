@@ -15,12 +15,14 @@ const feelingColors = {
     hopeful: '#A9E5B1'
 };
 
-//get the slider, the number display from HTML , form toggle button, feelingform and panel
+//get the slider, the number display from HTML , form toggle button, feelingform , record button, panel form and records panel
 const feelingStrength = document.getElementById("feelingStrength");
 const strengthValue = document.getElementById("strengthValue");
 const toggleForm = document.getElementById("toggleForm");
 const feelingPanel = document.getElementById("feelingPanel");
 const plantFeeling = document.getElementById("plantFeeling");
+const toggleRecords = document.getElementById("toggleRecords");
+const recordsPanel = document.getElementById("recordsPanel");
 
 //update the number when the user moves the slider
 feelingStrength.addEventListener("input", function () {
@@ -30,6 +32,10 @@ feelingStrength.addEventListener("input", function () {
 // Listen for the button of form
 toggleForm.addEventListener("click", function () {
     feelingPanel.classList.toggle("open");
+})
+
+toggleRecords.addEventListener("click", function () {
+    recordsPanel.classList.toggle("open");
 })
 
 //listen for the form submission
