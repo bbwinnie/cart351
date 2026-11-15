@@ -129,6 +129,8 @@ main {
 .plantCollect {
     position: relative;
     min-height: 100vh;
+    width: 100px;
+    align-self: stretch;
 }
 
 .feelingContainer {
@@ -215,4 +217,59 @@ main {
 .rangeLabels {
     display: flex;
     justify-content: space-between;
+    font-weight: 500;
+    font-size: 18px;
+    color: #819F7E;
+    margin: 0 0 8px 0;
+}
+
+.rangeTitle {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.rangeTitle label,
+.rangeTitle span {
+    font-weight: 500;
+    font-size: 22px;
+    color: #256852;
+    margin: 0 0 8px 0;
+}
+
+/*** feeling note ***/
+.feelingNote textarea {
+    width: 100%;
+    background-color: #fffcf7;
+    border: 1px solid #b5b0a8;
+    border-radius: 10px;
+    padding: 12px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.feelingNote label {
+    font-weight: 500;
+    font-size: 22px;
+    color: #256852;
+    margin: 0 0 8px 0;
+}
+
+/***button***/
+#submitFeeling {
+    background-color: #819F7E;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: backgroud-color 0.3s ease;
+    border: none;
+    box-shadow: none;
+}
+
+#submitFeeling:hover {
+    background-color: #668763;
+    color: white;
 }

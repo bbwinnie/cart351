@@ -48,8 +48,10 @@
 
             <div class="feelingRange">
 
-                <label for="feelingStrength">How strong is this feeling?</label>
-                <span id="strengthValue">0</span>
+                <div class="rangeTitle">
+                    <label for="feelingStrength">How strong is this feeling?</label>
+                    <span id="strengthValue">0</span>
+                </div>
 
                 <div>
                     <input type="range" id="feelingStrength" name="feelingStrength" min="0" max="10" value="0"
@@ -62,13 +64,13 @@
                 </div>
             </div>
 
-            <div>
+            <div class="feelingNote">
                 <label for="feelingNote">Would you like to leave a note?</label>
                 <textarea id="feelingNote" rows="4" cols="50" name="feelingNote"></textarea>
             </div>
 
             <div>
-                <input id="submitFeeling" type="submit" value="plant My Feeling" />
+                <input id="submitFeeling" type="submit" value="🌱Plant My Feeling" />
             </div>
         </form>
 
