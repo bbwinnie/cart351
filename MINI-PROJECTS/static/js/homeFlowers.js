@@ -1,4 +1,17 @@
+/**
+ * Home page flower animation 
+ * 
+ * this sketch creates decorative flowers on the homepage.
+ * Each flower has a random postion, color, and number of petals.
+ * 
+ * the flowers move gently from side to side using sin().
+ * bezier curves are used to create curved stems.
+ * 
+ * these flowers are only for decortaion.
+ * they do not contain any saved emotion data.
+ */
 "use strict";
+
 
 //store the flowers and their information
 let flowers = [];
@@ -37,7 +50,7 @@ function setup() {
             //spred flowers across the canse with small random changes
             x: (i + 0.5) * width / 30 + random(-10, 10),
 
-            //give each flower a random height,color,petals and starting offset
+            //give each flower a random height,color,petals
             y: random(180, 300),
             color: random(flowerColor),
             petalCount: int(random(7, 13)),

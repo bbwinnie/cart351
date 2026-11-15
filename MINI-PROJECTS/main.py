@@ -1,3 +1,6 @@
+# This flask application connect the website to a JSON file.
+# It displays the home and garden pages, loads saved emotions 
+# and saves new emotion records submitted by users.
 from flask import Flask,render_template,url_for,request
 import json
 
@@ -30,7 +33,8 @@ def getEmotions():
 
    return{"emotions":emotions}
 
-#save a new emotion into JSON
+#receive emotion data from JS using a post request.
+#save the new emotion to the json file so it can be loaded later.
 @app.route('/saveEmotion',methods=["post"])
 def saveEmotion():
     #get data from the form

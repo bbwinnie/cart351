@@ -71,16 +71,17 @@ plantFeeling.addEventListener("submit", function (event) {
     //get the intensity from the slider
     let intensity = Number(feelingStrength.value);
 
-    //conver intensity into rotation speed
+    //map the intensity(0-10) to the flower's rotation speed
     let speed = map(intensity, 0, 10, 0.45, 8);
 
-    //conver intensity into size
+    //map the intensity(0-10) to the flower's size
     let size = map(intensity, 0, 10, 0.7, 1.4);
 
     //change flower color based on intensity
     let baseColor = color(feelingColors[selectedFeeling.value]);
 
-    //using p5 mix color lerpColor, max the dark color with white to get lighter color
+    //mix white with the emotion color
+    //weaker feeling create lighter colors, stronger feeling create brighter colors
     let intensityColor = lerpColor(
         color('#ffffff'),
         baseColor,
@@ -210,10 +211,10 @@ function setup() {
     //console.log("Canvas size:", garden.clientWidth, garden.clientHeight);
 
     //create initial leaves
-    createInitialFlowers();
-
-    //create initial leaves
     createInitialLeaves();
+
+    //create initial flowers
+    createInitialFlowers();
 
     //load emotion json from Flask
     loadEmotion();
@@ -267,13 +268,19 @@ function drawLeaves() {
 
 }
 
-//update and draw every flowers in the garden
+/** 
+ * flower animation
+ * 
+ * each now emotion flower goes through three stage. 
+ * flower slowly increase in size, and glows bigger and then returns normal
+ * and rotates continously
+ */
 function drawFlowers() {
 
     //draw everyFlower in the garden
     for (let f of flowers) {
 
-        //grow only the only new flowers
+        //only animate flowers in the growing stage new
         if (f.stage == "growing") {
 
             //make each flower grow slowly
@@ -328,7 +335,7 @@ function drawFlowers() {
     }
 }
 
-//create 40 leaves across the whole garden
+//create 80 leaves across the whole garden
 function createInitialLeaves() {
 
     //using grid spread the leaves across the cnanvas
@@ -410,7 +417,7 @@ function flower(x, y, growth, flowerColor, speed, petalCount, stage, isEmotionFl
     }
     noStroke();
 
-    //Draw 10 petals
+    //Draw petals based on petalcount
     fill(flowerColor);
     for (let i = 0; i < petalCount; i++) {
         ellipse(0, 20 * growth, 15 * growth, 30 * growth);
@@ -447,10 +454,10 @@ function loadEmotion() {
                 //get intensity
                 let intensity = Number(emotion.intensity);
 
-                //conver intensity into rotation speed
+                //map the intensity(0-10) to the flower's rotation speed
                 let speed = map(intensity, 0, 10, 0.45, 8);
 
-                //conver intensity into size
+                //map the intensity(0-10) to the flower's size
                 let size = map(intensity, 0, 10, 0.7, 1.4);
 
                 //get the flower color based on feeling and intensity
@@ -505,7 +512,7 @@ function mouseMoved() {
 
         let f = flowers[i];
 
-        //skip background folower
+        //skip background folowers without emotion data
         if (!f.isEmotionFlower) {
             continue;
         }

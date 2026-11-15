@@ -40,15 +40,19 @@
     </div>
 </div>
 
+{#p5.js displays the interactive garden here#}
 <section class="plantCollect">
     <div id="p5gardenCanvas">
+        {#the tooltip shows saved emotion information when hovering over a flower#}
         <div id="flowerTooltip"> </div>
     </div>
 
     <button type="button" id="toggleForm"> 🌱 Plant My Feeling</button>
 
+
     <div class="feelingContainer" id="feelingPanel">
 
+        {#user can select an emotion, choose its intensity, and leave a note#}
         <form id="plantFeeling">
 
             <h1> Plant Your Feeling</h1>
@@ -117,6 +121,7 @@
 
     </div>
 
+    {#display the emotion records saved in the json file#}
     <button type="button" id="toggleRecords"> 📖 Emotion Records</button>
     <div class="emotionRecords" id="recordsPanel">
         <h1> Emotion Records</h1>
@@ -129,14 +134,15 @@
                 <th>Note</th>
             </tr>
 
+            {#use a loop to create a table row for each saved emotion#}
             {%for emotion in emotions%}
             <tr>
                 <td>{{emotion.timestamp[:16].replace("T", " ")}}</td>
                 <td>{{emotion.feeling}}</td>
                 <td>{{emotion.intensity}}</td>
                 <td>{{emotion.note if emotion.note else"None"}}</td>
-            <tr>
-                {%endfor%}
+            </tr>
+            {%endfor%}
 
         </table>
 

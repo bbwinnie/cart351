@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block content %}
+
+{# --introduce the concept of emotion garden and guide users to the garden page#}
 <section class="intro">
     <h2>Every feeling grows into a flower</h2>
     <div class="introContent">
@@ -19,6 +21,7 @@
         <a href="{{url_for('garden')}}">Plant Your Feelings</a>
     </div>
 
+    {# p5.js adds the animated decorative flower canvas here#}
     <div id="p5FlowerCanvas"></div>
 
     <div class="flowerGround"></div>
