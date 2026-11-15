@@ -52,5 +52,119 @@
         "intensity": 4,
         "note": "",
         "timestamp": "2026-11-15T18:16:26.948Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T18:27:43.016Z"
+    },
+    {
+        "feeling": "Calm",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T18:27:48.947Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 10,
+        "note": "",
+        "timestamp": "2026-11-15T18:30:54.571Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T18:33:24.457Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T18:33:30.591Z"
+    },
+    {
+        "feeling": "Calm",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T18:33:41.859Z"
+    },
+    {
+        "feeling": "Hopeful",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T18:33:45.786Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 6,
+        "note": "",
+        "timestamp": "2026-11-15T18:43:18.938Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 8,
+        "note": "",
+        "timestamp": "2026-11-15T18:47:35.730Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 6,
+        "note": "",
+        "timestamp": "2026-11-15T18:48:29.259Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 6,
+        "note": "",
+        "timestamp": "2026-11-15T18:48:34.295Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T18:50:08.688Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T18:50:14.753Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 0,
+        "note": "",
+        "timestamp": "2026-11-15T18:51:04.957Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 6,
+        "note": "",
+        "timestamp": "2026-11-15T18:56:23.079Z"
+    },
+    {
+        "feeling": "Angry",
+        "intensity": 4,
+        "note": "",
+        "timestamp": "2026-11-15T18:56:37.978Z"
+    },
+    {
+        "feeling": "Calm",
+        "intensity": 7,
+        "note": "",
+        "timestamp": "2026-11-15T18:56:45.560Z"
+    },
+    {
+        "feeling": "Hopeful",
+        "intensity": 7,
+        "note": "",
+        "timestamp": "2026-11-15T18:57:01.430Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 7,
+        "note": "",
+        "timestamp": "2026-11-15T19:03:35.415Z"
     }
 ]

@@ -61,11 +61,12 @@ plantFeeling.addEventListener("submit", function (event) {
     let intensity = Number(feelingStrength.value);
 
     //conver intensity into rotation speed
-    let speed = map(intensity, 0, 10, 0.1, 0.);
+    let speed = map(intensity, 0, 10, 0.45, 8);
 
     //conver intensity into size
     let size = map(intensity, 0, 10, 0.7, 1.4);
 
+    //create new flower
     flowers.push({
         x: random(50, width - 50),
         y: random(50, height - 50),
@@ -73,6 +74,13 @@ plantFeeling.addEventListener("submit", function (event) {
         color: feelingColors[selectedFeeling.value],
         speed: speed,
         size: size,
+        petalCount: int(random(6, 13)),
+        stage: "growing",
+
+        //control the pulse animation
+        pulse: 1,
+        pulseDirection: 1
+
     });
 
     //console.log("Total flowers:", flowers.length);
@@ -178,7 +186,9 @@ function setup() {
             size: random(0.7, 1.4),
             color: random(Object.values(feelingColors)),
             growth: 1,
-            speed: random(0.02, 0.15)
+            speed: random(0.45, 1),
+            petalCount: int(random(6, 13)),
+            stage: "spinning",
         });
     }
 }
@@ -193,11 +203,57 @@ function draw() {
     //draw everyFlower in the garden
     for (let f of flowers) {
 
-        //make each flower grow slowly
-        f.growth = min(f.growth + 0.01, 1);
+        //grow only the only new flowers
+        if (f.stage == "growing") {
+
+            //make each flower grow slowly
+            f.growth = min(f.growth + 0.01, 1);
+
+            if (f.growth >= 1) {
+                f.stage = "pulsing";
+            }
+        }
+
+        //make the flower grow bigger and smaller
+        if (f.stage === "pulsing") {
+
+            //change the pulse size
+            f.pulse = f.pulse + 0.02 * f.pulseDirection;
+
+            //start shrinking when the flower reaches 2 times its size
+            if (f.pulse >= 2) {
+                f.pulse = 2;
+                f.pulseDirection = -1;
+            }
+
+            //start spinning when the flower returns to normal size
+            if (f.pulse <= 1) {
+                f.pulse = 1;
+                f.stage = "spinning";
+            }
+        }
+
+        //calculate the flower size
+        let displaySize = f.growth * f.size;
+
+        //apply pulse only to pulsing flowers
+        if (f.stage === "pulsing") {
+            displaySize = displaySize * f.pulse;
+        }
 
         //draw the flower with its own growth
-        flower(f.x, f.y, f.growth * f.size, f.color, f.speed);
+        flower(f.x, f.y, displaySize, f.color, f.speed, f.petalCount, f.stage);
+
+        //adding circle for new flower to help user see there flower
+        if (f.stage === "growing" || f.stage === "pulsing") {
+
+            push();
+            noFill();
+            stroke("#d77a91");
+            strokeWeight(3);
+            circle(f.x, f.y, 150 * f.size);
+            pop()
+        }
     }
 
 }
@@ -206,19 +262,22 @@ function draw() {
  * Flower
  * Draw a flower that grows from small to big.
  */
-function flower(x, y, growth, flowerColor, speed) {
+function flower(x, y, growth, flowerColor, speed, petalCount, stage) {
 
+    //rotate the flower
     push();
     translate(x, y);
-    rotate(frameCount * speed);
+    if (stage === "spinning") {
+        rotate(frameCount * speed);
+
+    }
     noStroke();
 
     //Draw 10 petals
     fill(flowerColor);
-
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < petalCount; i++) {
         ellipse(0, 20 * growth, 15 * growth, 30 * growth);
-        rotate(36);
+        rotate(360 / petalCount);
     }
     pop();
 
