@@ -358,3 +358,51 @@ main:has(.plantCollect) {
     background-color: #A8D5A2;
     flex: 1;
 }
+
+/***button for emotion records ***/
+#toggleRecords {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 3;
+
+    background-color: #256852;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+#toggleRecords:hover {
+    background-color: #819F7E;
+    color: white;
+}
+
+/*** emotion records panel ***/
+.emotionRecords {
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    z-index: 3;
+
+    width: 420px;
+    max-width: 70%;
+    overflow-y: auto;
+
+    background-color: #fffcf7;
+    border: 1px solid #D8D5CE;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    transform: translateX(calc(100% + 60px));
+    visibility: hidden;
+    transition: transform 0.35s ease, visibility 0.35s;
+}
+
+.emotionRecords.open {
+    transform: translateX(0);
+    visibility: visible;
+}

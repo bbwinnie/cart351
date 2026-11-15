@@ -10,7 +10,14 @@ def index():
 
 @app.route('/garden')
 def garden():
-    return render_template("garden.html")
+
+    #read saved emotions from JSON
+    jsonFile = open("files/emotion.json","r")
+    emotions =json.load(jsonFile)
+    jsonFile.close()
+
+    #send emotions to the garden page
+    return render_template("garden.html",emotions = emotions)
 
 #Get saved emotions from JSON
 @app.route('/getEmotions')

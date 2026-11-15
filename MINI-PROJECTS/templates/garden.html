@@ -84,5 +84,18 @@
         </form>
 
     </div>
+
+    <button type="button" id="toggleRecords"> 📖 Emotion Records</button>
+    <div class="emotionRecords" id="recordPanel">
+        <h1> Emotion Records</h1>
+        {%for emotion in emotions%}
+        <p>
+            {{emotion.timestamp}} | {{emotion.feeling}} | {{emotion.intensity}} | {emotion.note}
+        </p>
+        {%endfor%}
+
+    </div>
+
+
 </section>
 {% endblock %}

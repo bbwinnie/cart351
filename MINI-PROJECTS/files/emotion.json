@@ -10,5 +10,11 @@
         "intensity": 5,
         "note": "",
         "timestamp": "2026-11-15T06:23:35.827Z"
+    },
+    {
+        "feeling": "happy",
+        "intensity": 4,
+        "note": "",
+        "timestamp": "2026-11-15T06:38:49.551Z"
     }
 ]
