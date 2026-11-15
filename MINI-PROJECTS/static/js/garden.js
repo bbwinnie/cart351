@@ -15,21 +15,58 @@ const feelingColors = {
     hopeful: '#A9E5B1'
 };
 
-//get the slider, the number display from HTML , form toggle button and panel
+//get the slider, the number display from HTML , form toggle button, feelingform and panel
 const feelingStrength = document.getElementById("feelingStrength");
 const strengthValue = document.getElementById("strengthValue");
 const toggleForm = document.getElementById("toggleForm");
 const feelingPanel = document.getElementById("feelingPanel");
+const plantFeeling = document.getElementById("plantFeeling");
 
 //update the number when the user moves the slider
 feelingStrength.addEventListener("input", function () {
     strengthValue.textContent = feelingStrength.value
 })
 
+// Listen for the button of form
 toggleForm.addEventListener("click", function () {
     feelingPanel.classList.toggle("open");
 })
 
+//listen for the form submission
+plantFeeling.addEventListener("submit", function (event) {
+
+    //stop the page from refreshing
+    event.preventDefault();
+
+    //get the selected feeling
+    let selectedFeeling = document.querySelector('input[name=feeling]:checked');
+
+    if (!selectedFeeling) {
+        alert("please select a feeling!");
+        return;
+    }
+
+    //get the intensity from the slider
+    let intensity = Number(feelingStrength.value);
+
+    //conver intensity into rotation speed
+    let speed = map(intensity, 0, 10, 0.02, 0.15);
+
+    //conver intensity into size
+    let size = map(intensity, 0, 10, 0.7, 1.4);
+
+    flowers.push({
+        x: random(50, width - 50),
+        y: random(50, height - 50),
+        growth: 0,
+        color: feelingColors[selectedFeeling.value],
+        speed: speed,
+        size: size,
+    });
+
+    console.log("Total flowers:", flowers.length);
+
+})
 //console.log(feelingStrength.value);
 
 /**
