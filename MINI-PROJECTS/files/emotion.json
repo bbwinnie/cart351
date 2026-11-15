@@ -6,207 +6,45 @@
         "timestamp": "2026-11-15T06:10:34.949Z"
     },
     {
-        "feeling": "Anxious",
-        "intensity": 5,
-        "note": "",
-        "timestamp": "2026-11-15T06:23:35.827Z"
-    },
-    {
-        "feeling": "Happy",
-        "intensity": 4,
-        "note": "",
-        "timestamp": "2026-11-15T06:38:49.551Z"
-    },
-    {
-        "feeling": "Anxious",
-        "intensity": 5,
-        "note": "adf",
-        "timestamp": "2026-11-15T17:41:13.310Z"
-    },
-    {
-        "feeling": "Anxious",
-        "intensity": 5,
-        "note": "",
-        "timestamp": "2026-11-15T17:43:02.436Z"
-    },
-    {
-        "feeling": "Happy",
-        "intensity": 0,
-        "note": "",
-        "timestamp": "2026-11-15T17:57:23.285Z"
-    },
-    {
-        "feeling": "Anxious",
-        "intensity": 5,
-        "note": "",
-        "timestamp": "2026-11-15T17:59:40.229Z"
-    },
-    {
-        "feeling": "Anxious",
-        "intensity": 10,
-        "note": "",
-        "timestamp": "2026-11-15T17:59:46.746Z"
-    },
-    {
-        "feeling": "Calm",
-        "intensity": 4,
-        "note": "",
-        "timestamp": "2026-11-15T18:16:26.948Z"
-    },
-    {
-        "feeling": "Anxious",
-        "intensity": 5,
-        "note": "",
-        "timestamp": "2026-11-15T18:27:43.016Z"
-    },
-    {
-        "feeling": "Calm",
-        "intensity": 5,
-        "note": "",
-        "timestamp": "2026-11-15T18:27:48.947Z"
-    },
-    {
-        "feeling": "Happy",
-        "intensity": 10,
-        "note": "",
-        "timestamp": "2026-11-15T18:30:54.571Z"
-    },
-    {
         "feeling": "Happy",
         "intensity": 5,
         "note": "",
-        "timestamp": "2026-11-15T18:33:24.457Z"
+        "timestamp": "2026-11-15T22:35:19.977Z"
     },
     {
-        "feeling": "Happy",
-        "intensity": 5,
-        "note": "",
-        "timestamp": "2026-11-15T18:33:30.591Z"
-    },
-    {
-        "feeling": "Calm",
-        "intensity": 5,
-        "note": "",
-        "timestamp": "2026-11-15T18:33:41.859Z"
-    },
-    {
-        "feeling": "Hopeful",
-        "intensity": 5,
-        "note": "",
-        "timestamp": "2026-11-15T18:33:45.786Z"
-    },
-    {
-        "feeling": "Happy",
-        "intensity": 6,
-        "note": "",
-        "timestamp": "2026-11-15T18:43:18.938Z"
-    },
-    {
-        "feeling": "Happy",
+        "feeling": "Sad",
         "intensity": 8,
         "note": "",
-        "timestamp": "2026-11-15T18:47:35.730Z"
-    },
-    {
-        "feeling": "Happy",
-        "intensity": 6,
-        "note": "",
-        "timestamp": "2026-11-15T18:48:29.259Z"
-    },
-    {
-        "feeling": "Happy",
-        "intensity": 6,
-        "note": "",
-        "timestamp": "2026-11-15T18:48:34.295Z"
+        "timestamp": "2026-11-15T22:35:27.420Z"
     },
     {
         "feeling": "Anxious",
-        "intensity": 5,
+        "intensity": 3,
         "note": "",
-        "timestamp": "2026-11-15T18:50:08.688Z"
-    },
-    {
-        "feeling": "Anxious",
-        "intensity": 5,
-        "note": "",
-        "timestamp": "2026-11-15T18:50:14.753Z"
-    },
-    {
-        "feeling": "Anxious",
-        "intensity": 0,
-        "note": "",
-        "timestamp": "2026-11-15T18:51:04.957Z"
-    },
-    {
-        "feeling": "Happy",
-        "intensity": 6,
-        "note": "",
-        "timestamp": "2026-11-15T18:56:23.079Z"
-    },
-    {
-        "feeling": "Angry",
-        "intensity": 4,
-        "note": "",
-        "timestamp": "2026-11-15T18:56:37.978Z"
-    },
-    {
-        "feeling": "Calm",
-        "intensity": 7,
-        "note": "",
-        "timestamp": "2026-11-15T18:56:45.560Z"
+        "timestamp": "2026-11-15T22:35:35.792Z"
     },
     {
         "feeling": "Hopeful",
-        "intensity": 7,
+        "intensity": 9,
         "note": "",
-        "timestamp": "2026-11-15T18:57:01.430Z"
+        "timestamp": "2026-11-15T22:35:42.910Z"
     },
     {
-        "feeling": "Anxious",
-        "intensity": 7,
+        "feeling": "Calm",
+        "intensity": 6,
         "note": "",
-        "timestamp": "2026-11-15T19:03:35.415Z"
-    },
-    {
-        "feeling": "Angry",
-        "intensity": 4,
-        "note": "",
-        "timestamp": "2026-11-15T19:43:09.663Z"
-    },
-    {
-        "feeling": "Angry",
-        "intensity": 10,
-        "note": "",
-        "timestamp": "2026-11-15T19:43:20.146Z"
-    },
-    {
-        "feeling": "Anxious",
-        "intensity": 0,
-        "note": "",
-        "timestamp": "2026-11-15T19:43:28.186Z"
+        "timestamp": "2026-11-15T22:36:00.291Z"
     },
     {
         "feeling": "Angry",
         "intensity": 0,
         "note": "",
-        "timestamp": "2026-11-15T19:43:33.928Z"
+        "timestamp": "2026-11-15T22:36:04.967Z"
     },
     {
-        "feeling": "Happy",
-        "intensity": 4,
-        "note": "",
-        "timestamp": "2026-11-15T19:45:22.578Z"
-    },
-    {
-        "feeling": "Happy",
+        "feeling": "Hopeful",
         "intensity": 0,
         "note": "",
-        "timestamp": "2026-11-15T19:45:29.097Z"
-    },
-    {
-        "feeling": "Anxious",
-        "intensity": 4,
-        "note": "",
-        "timestamp": "2026-11-15T19:47:09.369Z"
+        "timestamp": "2026-11-15T22:36:08.627Z"
     }
 ]

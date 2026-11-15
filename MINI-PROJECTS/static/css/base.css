@@ -459,19 +459,20 @@ main:has(.plantCollect) {
 
 .gardenIntro h1 {
     font-size: 32px;
-    color: #28765E;
+    color: #586D55;
     margin: 0 0 5px;
+    font-weight: 500;
 }
 
 .gardenIntro h2 {
-    font-size: 15px;
+    font-size: 20px;
     color: #667E70;
     font-weight: normal;
     margin: 0 0 5px;
 }
 
 .gardenIntro p {
-    font-size: 13px;
+    font-size: 15px;
     color: #8A9185;
     margin: 0;
 }
@@ -526,4 +527,22 @@ main:has(.plantCollect) {
 
 .gardenIntro .colorDot.hopeful {
     background-color: #a9e5b1;
+}
+
+/*** flower infromation toopltip***/
+#flowerTooltip {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    background-color: #ffffff;
+    border: 2px solid #819f7e;
+    border-radius: 10px;
+    padding: 12px 15px;
+    max-width: 220px;
+    color: #28765E;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
 }

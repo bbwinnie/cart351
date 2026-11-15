@@ -105,8 +105,14 @@ plantFeeling.addEventListener("submit", function (event) {
 
         //control the pulse animation
         pulse: 1,
-        pulseDirection: 1
+        pulseDirection: 1,
 
+        //store the emotion information
+        isEmotionFlower: true,
+        feeling: selectedFeeling.value,
+        intensity: intensity,
+        note: plantFeeling.querySelector("textarea").value,
+        timestamp: timestamp
     });
 
     //console.log("Total flowers:", flowers.length);
@@ -307,7 +313,7 @@ function drawFlowers() {
         }
 
         //draw the flower with its own growth
-        flower(f.x, f.y, displaySize, f.color, f.speed, f.petalCount, f.stage);
+        flower(f.x, f.y, displaySize, f.color, f.speed, f.petalCount, f.stage, f.isEmotionFlower);
 
         //adding circle for new flower to help user see there flower
         if (f.stage === "growing" || f.stage === "pulsing") {
@@ -327,9 +333,9 @@ function createInitialLeaves() {
 
     //using grid spread the leaves across the cnanvas
     let leafCols = 8;
-    let leafRows = 5;
+    let leafRows = 10;
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 80; i++) {
 
         //%gives the column number; floor() gives the row number
         let col = i % leafCols;
@@ -393,7 +399,7 @@ function createInitialFlowers() {
  * I used this a reference for making flowers from simple shapes.
  * My version change size, color,petal count and rotation with each feeling.
  */
-function flower(x, y, growth, flowerColor, speed, petalCount, stage) {
+function flower(x, y, growth, flowerColor, speed, petalCount, stage, isEmotionFlower) {
 
     //rotate the flower
     push();
@@ -416,7 +422,14 @@ function flower(x, y, growth, flowerColor, speed, petalCount, stage) {
     //Draw the flower center
     translate(x, y);
     noStroke();
-    fill('#f0eea2');
+
+    //if followe have data use orange else use yellow
+    if (isEmotionFlower) {
+        fill("#f1c690");
+    } else {
+        fill('#f0eea2');
+    }
+
     circle(0, 0, 20 * growth);
     pop();
 }
@@ -450,7 +463,7 @@ function loadEmotion() {
                 );
 
                 flowers.push({
-                    //pick a random position, leaving some space around the canvas edge
+                    //repick a random position, leaving some space around the canvas edge
                     x: random(50, width - 50),
                     y: random(50, height - 50),
                     growth: 1,
@@ -462,13 +475,73 @@ function loadEmotion() {
                     petalCount: int(random(6, 13)),
                     stage: "spinning",
 
-                    //control the pulse animation
+                    //recontrol the pulse animation
                     pulse: 1,
-                    pulseDirection: 1
+                    pulseDirection: 1,
+
+                    //restore the emotion information
+                    isEmotionFlower: true,
+                    feeling: emotion.feeling,
+                    intensity: intensity,
+                    note: emotion.note || "",
+                    timestamp: emotion.timestamp || ""
 
                 });
             }
 
-            console.log("Total flowers", flowers.length);
+            // console.log("Total flowers", flowers.length);
         })
+}
+
+//show emotion information when the mouse is over a flower
+function mouseMoved() {
+    let tooltip = document.getElementById("flowerTooltip");
+
+    //hide the tooltip first
+    tooltip.style.display = "none";
+
+    //check flower from the last one to the fist
+    for (let i = flowers.length - 1; i >= 0; i--) {
+
+        let f = flowers[i];
+
+        //skip background folower
+        if (!f.isEmotionFlower) {
+            continue;
+        }
+
+        //calculate the distance between mouse and flower
+        let distance = dist(mouseX, mouseY, f.x, f.y);
+
+        let flowerSize = f.growth * f.size;
+
+        if (f.stage === "pulsing") {
+            flowerSize = flowerSize * f.pulse;
+        }
+
+        //check if the mouse is over this flower
+        if (distance < 35 * flowerSize) {
+
+            //display the saved emotion information
+            tooltip.textContent =
+                "Feeling:" + f.feeling +
+                "\nIntensity:" + f.intensity +
+                "\nNote:" + (f.note || "No note") +
+                "\nData:" + new Date(f.timestamp).toLocaleString();
+
+            tooltip.style.display = "block";
+
+            // Show the tooltip next to the mouse
+            tooltip.style.left = (mouseX + 15) + "px";
+            tooltip.style.top = (mouseY + 15) + "px";
+
+            //position the tooltip near the mouse 
+            tooltip.style.left = Math.max(8, Math.min(mouseX + 15, width - tooltip.offsetWidth - 8) + "px");
+
+            tooltip.style.top = Math.max(8, Math.min(mouseY + 15, height - tooltip.offsetHeight - 8) + "px");
+
+            break;
+        }
+    }
+
 }
