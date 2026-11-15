@@ -1,10 +1,17 @@
 "use strict"
 
-let growth;
+/**
+ * Emotion Garden(p5+js +flask)
+ * Each feeling becomes a flower. its intensity change the flower's 
+ * color,size,and spinning speed.
+ * 
+ * Visual references used while making the garden: 
+ * - flowers by son :https://editor.p5js.org/son/sketches/SkJJxG2Cm 
+ * - Moving Grass by maileenb: https://editor.p5js.org/maileenb/sketches/Dlyu4Sp6v
+ */
 
-//store the flowers and their information
+//store the flowers and leaves
 let flowers = [];
-
 let leaves = [];
 
 //set a flower color for each feeling
@@ -31,11 +38,12 @@ feelingStrength.addEventListener("input", function () {
     strengthValue.textContent = feelingStrength.value
 })
 
-// Listen for the button of form
+// open and close for the feeling form
 toggleForm.addEventListener("click", function () {
     feelingPanel.classList.toggle("open");
 })
 
+//open and close the records panel
 toggleRecords.addEventListener("click", function () {
     recordsPanel.classList.toggle("open");
 })
@@ -54,6 +62,7 @@ plantFeeling.addEventListener("submit", function (event) {
     //get the selected feeling
     let selectedFeeling = document.querySelector('input[name=feeling]:checked');
 
+    //do not plant or save anything if the user did not choose a feeling
     if (!selectedFeeling) {
         alert("please select a feeling!");
         return;
@@ -78,14 +87,19 @@ plantFeeling.addEventListener("submit", function (event) {
         map(intensity, 0, 10, 0.3, 1)
     );
 
-    //create new flower
+    //create new flower object to the flower array
+    // the new flower begins at growth 0 and moves through three animation stages:
+    // growing -> pulsing -> spinning.
     flowers.push({
+        //pick a random position, leaving some space around the canvas edge
         x: random(50, width - 50),
         y: random(50, height - 50),
         growth: 0,
         color: intensityColor,
         speed: speed,
         size: size,
+
+        //random choose 6-12 petals for this flowers
         petalCount: int(random(6, 13)),
         stage: "growing",
 
@@ -97,23 +111,26 @@ plantFeeling.addEventListener("submit", function (event) {
 
     //console.log("Total flowers:", flowers.length);
 
-    //get the form data
+    //collect the feeling informatino to send to the Flask server
     let formData = new FormData();
 
+    //formData holds the same values the user entered in the form
     formData.append("feeling", selectedFeeling.value);
     formData.append("intensity", feelingStrength.value);
     formData.append("note", plantFeeling.querySelector("textarea").value);
     formData.append("timestamp", timestamp);
 
-    //send the form data to flask
+    //use fetch with POST to save emotion through the flask route
     fetch("/saveEmotion", {
         method: "POST",
         body: formData
     })
+        //read the json response returned by flask
         .then(response => response.json())
         .then(data => {
             console.log("emotion saved:", data);
 
+            //only close and reset the form after flask confirms the save
             if (data.saved) {
                 feelingPanel.classList.remove("open");
 
@@ -134,6 +151,10 @@ plantFeeling.addEventListener("submit", function (event) {
  * create the canvas inside the garden container
 */
 function setup() {
+
+    // set the angle unit by degrees.
+    angleMode(DEGREES);
+
     //get the garden container from HTML
     let garden = document.getElementById("p5gardenCanvas");
 
@@ -153,7 +174,6 @@ function setup() {
      * the canvas automatically.
      * This fixed the problem without needing to refresh the page.
      *  */
-
     //watch for changes in the garden container size
     const observer = new ResizeObserver(function () {
 
@@ -183,63 +203,12 @@ function setup() {
 
     //console.log("Canvas size:", garden.clientWidth, garden.clientHeight);
 
-    // set the angle unit by degrees.
-    angleMode(DEGREES);
+    //create initial leaves
+    createInitialFlowers();
 
-    //create 50 flowers across the whole garden
+    //create initial leaves
+    createInitialLeaves();
 
-    let cols = 10;
-    let rows = 10;
-
-    let cellWidth = width / cols;
-    let cellHeight = height / rows;
-
-    for (let i = 0; i < 100; i++) {
-
-        let col = i % cols;
-        let row = floor(i / cols);
-
-        let randomColor = random(Object.values(feelingColors));
-
-        let randomIntensity = random(0.45, 1);
-
-        let flowerColor = lerpColor(
-            color("#ffffff"),
-            color(randomColor),
-            randomIntensity
-        );
-
-        flowers.push({
-            x: (col + random(0.25, 0.75)) * cellWidth,
-            y: (row + random(0.25, 0.75)) * cellHeight,
-            size: random(0.7, 1.4),
-            color: flowerColor,
-            growth: 1,
-            speed: randomIntensity,
-            petalCount: int(random(6, 13)),
-            stage: "spinning",
-        });
-    }
-
-    //create 40 leaves across the whole garden
-
-    let leafCols = 8;
-    let leafRows = 5;
-
-    for (let i = 0; i < 40; i++) {
-
-        let col = i % leafCols;
-        let row = floor(i / leafCols);
-
-
-        leaves.push({
-            x: (col + random(0.25, 0.75)) / leafCols,
-            y: (row + random(0.25, 0.75)) / leafRows,
-            size: random(0.7, 1),
-            angle: random(0, 360),
-            off: random(0, 100)
-        })
-    }
 }
 
 /**
@@ -250,12 +219,33 @@ function draw() {
 
     background('#f6f3e9');
 
+    //draw the leaves , and draw the flowers on top
+    drawLeaves();
+    drawFlowers();
+
+}
+
+/**
+ * draw leaves
+ * visual reference: 'moving-grass' by maileenb
+ *  https://editor.p5js.org/maileenb/sketches/Dlyu4Sp6v 
+ * I used this as a reference for the idea of gentle plant movement.
+ */
+function drawLeaves() {
+
+    //go through each leaf object and draw it
     for (let leaf of leaves) {
+
         push();
 
+        // noise()produces a smooth changing value instead of sudden jumps
+        //map the result to a small movement between -8 and 8
         let sway = map(noise(leaf.off), 0, 1, -8, 8);
+
+        //move through noise slowly, so the leaf seems to shake
         leaf.off += 0.01;
 
+        //add sway to the x position and to the leaf's angle
         translate(leaf.x * width + sway, leaf.y * height);
         rotate(leaf.angle + sway);
 
@@ -266,6 +256,11 @@ function draw() {
         pop();
     }
 
+}
+
+//update and draw every flowers in the garden
+function drawFlowers() {
+
     //draw everyFlower in the garden
     for (let f of flowers) {
 
@@ -275,6 +270,7 @@ function draw() {
             //make each flower grow slowly
             f.growth = min(f.growth + 0.01, 1);
 
+            //after it reaches full size, switch to the pulsing stage
             if (f.growth >= 1) {
                 f.stage = "pulsing";
             }
@@ -321,14 +317,78 @@ function draw() {
             pop()
         }
     }
-
-
-
 }
 
+//create 40 leaves across the whole garden
+function createInitialLeaves() {
+
+    //using grid spread the leaves across the cnanvas
+    let leafCols = 8;
+    let leafRows = 5;
+
+    for (let i = 0; i < 40; i++) {
+
+        //%gives the column number; floor() gives the row number
+        let col = i % leafCols;
+        let row = floor(i / leafCols);
+
+        leaves.push({
+            x: (col + random(0.25, 0.75)) / leafCols,
+            y: (row + random(0.25, 0.75)) / leafRows,
+            size: random(0.7, 1),
+            angle: random(0, 360),
+            off: random(0, 100)
+        })
+    }
+}
+
+//create 100 flowers across the whole garden
+function createInitialFlowers() {
+
+    let cols = 10;
+    let rows = 10;
+
+    //find the size of one grid cell in pixels
+    let cellWidth = width / cols;
+    let cellHeight = height / rows;
+
+    for (let i = 0; i < 100; i++) {
+
+        let col = i % cols;
+        let row = floor(i / cols);
+
+        //chose one random color
+        let randomColor = random(Object.values(feelingColors));
+
+        //chose random intensity 
+        let randomIntensity = random(0.45, 1);
+
+        //create a lighter or darker version of the selected color
+        let flowerColor = lerpColor(
+            color("#ffffff"),
+            color(randomColor),
+            randomIntensity
+        );
+
+        flowers.push({
+            x: (col + random(0.25, 0.75)) * cellWidth,
+            y: (row + random(0.25, 0.75)) * cellHeight,
+            size: random(0.7, 1.4),
+            color: flowerColor,
+            growth: 1,
+            speed: randomIntensity,
+            petalCount: int(random(6, 13)),
+            stage: "spinning",
+        });
+    }
+}
 /**
  * Flower
  * Draw a flower that grows from small to big.
+ * visual reference:"flower" by son 
+ * https://editor.p5js.org/son/sketches/SkJJxG2Cm
+ * I used this a reference for making flowers from simple shapes.
+ * My version change size, color,petal count and rotation with each feeling.
  */
 function flower(x, y, growth, flowerColor, speed, petalCount, stage) {
 
