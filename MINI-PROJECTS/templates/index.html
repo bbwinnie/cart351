@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 
+{% block scriptblock %}
+<script src="{{ url_for('static', filename='js/homeFlowers.js') }}" defer></script>
+<script src="{{url_for('static',filename='js/libraries/p5.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/libraries/p5.sound.min.js')}}"></script>
+{% endblock %}
+
 {% block content %}
 <section class="intro">
     <h2>Every feeling grows into a flower</h2>
-    <div>
+    <div class="introContent">
         <p class="textIntro">Everyone has good days and bad days. Sometimes,we have feelings that we don't want to share
             with our friends
             or family. This garden is a safe space to express those feelings, whether they are happy, sad, or difficult
@@ -12,5 +18,9 @@
             first step toward feeling better.</p>
         <a href="{{url_for('garden')}}">Plant Your Feelings</a>
     </div>
+
+    <div id="p5FlowerCanvas"></div>
+
+    <div class="flowerGround"></div>
 </section>
 {% endblock %}
