@@ -7,12 +7,12 @@ let flowers = [];
 
 //set a flower color for each feeling
 const feelingColors = {
-    happy: '#F5C0F0',
-    sad: '#818cee',
-    anxious: '#bfa2e8',
-    calm: '#A9D8CF',
-    angry: ' #e79d98',
-    hopeful: '#A9E5B1'
+    Happy: '#F5C0F0',
+    Sad: '#818cee',
+    Anxious: '#bfa2e8',
+    Calm: '#A9D8CF',
+    Angry: '#e79d98',
+    Hopeful: '#A9E5B1'
 };
 
 //get the slider, the number display from HTML , form toggle button, feelingform , record button, panel form and records panel
@@ -61,7 +61,7 @@ plantFeeling.addEventListener("submit", function (event) {
     let intensity = Number(feelingStrength.value);
 
     //conver intensity into rotation speed
-    let speed = map(intensity, 0, 10, 0.02, 0.15);
+    let speed = map(intensity, 0, 10, 0.1, 0.);
 
     //conver intensity into size
     let size = map(intensity, 0, 10, 0.7, 1.4);
@@ -92,7 +92,11 @@ plantFeeling.addEventListener("submit", function (event) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            console.log("emotion saved:", data);
+
+            if (data.saved) {
+                feelingPanel.classList.remove("open");
+            }
         })
 
 })
@@ -128,7 +132,21 @@ function setup() {
 
         //resize the canvas only when the container size changes
         if (width !== garden.clientWidth || height !== garden.clientHeight) {
+
+            //remember the old canvas size
+            let oldWidth = width;
+            let oldHeight = height;
+
+            //resize the canvas
             resizeCanvas(garden.clientWidth, garden.clientHeight);
+
+            //update each flower's position
+            if (oldWidth > 0 && oldHeight > 0) {
+                for (let f of flowers) {
+                    f.x = f.x * width / oldWidth;
+                    f.y = f.y * height / oldHeight;
+                }
+            }
         }
 
     })
@@ -144,12 +162,12 @@ function setup() {
     //create 50 flowers across the whole garden
 
     let cols = 10;
-    let rows = 5;
+    let rows = 10;
 
     let cellWidth = width / cols;
     let cellHeight = height / rows;
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 100; i++) {
 
         let col = i % cols;
         let row = floor(i / cols);
@@ -211,12 +229,4 @@ function flower(x, y, growth, flowerColor, speed) {
     fill('#f0eea2');
     circle(0, 0, 20 * growth);
     pop();
-}
-/**
- * Window Resized
- * update the canvas size when the brower winder changes
- */
-function windowResized() {
-    let garden = document.getElementById("p5gardenCanvas");
-    resizeCanvas(garden.clientWidth, garden.clientHeight);
 }

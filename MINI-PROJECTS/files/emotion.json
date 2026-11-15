@@ -16,5 +16,41 @@
         "intensity": 4,
         "note": "",
         "timestamp": "2026-11-15T06:38:49.551Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 5,
+        "note": "adf",
+        "timestamp": "2026-11-15T17:41:13.310Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T17:43:02.436Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 0,
+        "note": "",
+        "timestamp": "2026-11-15T17:57:23.285Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 5,
+        "note": "",
+        "timestamp": "2026-11-15T17:59:40.229Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 10,
+        "note": "",
+        "timestamp": "2026-11-15T17:59:46.746Z"
+    },
+    {
+        "feeling": "Calm",
+        "intensity": 4,
+        "note": "",
+        "timestamp": "2026-11-15T18:16:26.948Z"
     }
 ]

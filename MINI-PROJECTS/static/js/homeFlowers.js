@@ -9,6 +9,14 @@ let rightLeafX;
 let rightLeafY;
 let sway;
 
+let flowerColor = ['#F5C0F0',
+    '#818cee',
+    '#bfa2e8',
+    '#A9D8CF',
+    '#e79d98',
+    '#A9E5B1'];
+
+
 /**
  * SETUP 
  * create the canvas and generate 30 flowers with random properties.
@@ -30,7 +38,7 @@ function setup() {
 
             //give each flower a random height,color,petals and starting offset
             y: random(180, 300),
-            color: random(['#f8c7c7', '#f5c0f0', '#818cee', '#fee598']),
+            color: random(flowerColor),
             petalCount: int(random(7, 13)),
         });
     }
@@ -131,5 +139,14 @@ function flower(x, y, flowerColor, petalCount, sway) {
  * update the canvas size when the brower winder changes
  */
 function windowResized() {
+
+    //remember the old canvas width
+    let oldWidth = width;
+
     resizeCanvas(windowWidth, 400);
+
+    //update each flower's x position
+    for (let f of flowers) {
+        f.x = f.x * width / oldWidth;
+    }
 }
