@@ -2,6 +2,9 @@
 
 let growth;
 
+//store the flowers and their information
+let flowers = [];
+
 //get the slider and the number display from HTML
 const feelingStrength = document.getElementById("feelingStrength");
 const strengthValue = document.getElementById("strengthValue");
@@ -56,6 +59,17 @@ function setup() {
     // set the angle unit by degrees.
     angleMode(DEGREES);
 
+    flowers.push({
+        x: width * 0.7,
+        y: height * 0.5,
+        growth: 0
+    });
+
+    flowers.push({
+        x: width * 0.85,
+        y: height * 0.7,
+        growth: 0.2
+    });
 }
 
 /**
@@ -63,10 +77,17 @@ function setup() {
  * Draw the garden and flower
  */
 function draw() {
-    background('#D6E8D0');
+    background('#f6f3e9');
 
-    //draw a growing flower
-    flower(width * 0.7, height * 0.5);
+    //draw everyFlower in the garden
+    for (let f of flowers) {
+
+        //make each flower grow slowly
+        f.growth = min(f.growth + 0.01, 1);
+
+        //draw the flower with its own growth
+        flower(f.x, f.y, f.growth);
+    }
 
 }
 
@@ -74,14 +95,11 @@ function draw() {
  * Flower
  * Draw a flower that grows from small to big.
  */
-function flower(x, y) {
+function flower(x, y, growth) {
 
     push();
     translate(x, y);
     noStroke();
-
-    //control the flower groth
-    growth = min(frameCount / 60, 1);
 
     //Draw 10 petals
     fill('#f5c0f0');

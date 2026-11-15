@@ -302,7 +302,7 @@ main:has(.plantColect) {
     z-index: 1;
     overflow: hidden;
     border-radius: 10px;
-    /* border: 3px solid red; */
+    border: 3px solid #819F7E;
 }
 
 main:has(.plantCollect) {
