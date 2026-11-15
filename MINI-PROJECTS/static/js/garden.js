@@ -1,3 +1,7 @@
+"use strict"
+
+let growth;
+
 //get the slider and the number display from HTML
 const feelingStrength = document.getElementById("feelingStrength");
 const strengthValue = document.getElementById("strengthValue");
@@ -49,6 +53,9 @@ function setup() {
 
     //console.log("Canvas size:", garden.clientWidth, garden.clientHeight);
 
+    // set the angle unit by degrees.
+    angleMode(DEGREES);
+
 }
 
 /**
@@ -57,8 +64,42 @@ function setup() {
  */
 function draw() {
     background('#D6E8D0');
+
+    //draw a growing flower
+    flower(width * 0.7, height * 0.5);
+
 }
 
+/**
+ * Flower
+ * Draw a flower that grows from small to big.
+ */
+function flower(x, y) {
+
+    push();
+    translate(x, y);
+    noStroke();
+
+    //control the flower groth
+    growth = min(frameCount / 60, 1);
+
+    //Draw 10 petals
+    fill('#f5c0f0');
+
+    for (let i = 0; i < 10; i++) {
+        ellipse(0, 20 * growth, 15 * growth, 30 * growth);
+        rotate(36);
+    }
+    pop();
+
+    push();
+    //Draw the flower center
+    translate(x, y);
+    noStroke();
+    fill('#Faf75b');
+    circle(0, 0, 20 * growth);
+    pop();
+}
 /**
  * Window Resized
  * update the canvas size when the brower winder changes
