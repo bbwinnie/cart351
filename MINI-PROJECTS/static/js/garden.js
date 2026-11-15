@@ -209,6 +209,9 @@ function setup() {
     //create initial leaves
     createInitialLeaves();
 
+    //load emotion json from Flask
+    loadEmotion();
+
 }
 
 /**
@@ -416,4 +419,56 @@ function flower(x, y, growth, flowerColor, speed, petalCount, stage) {
     fill('#f0eea2');
     circle(0, 0, 20 * growth);
     pop();
+}
+
+//get saved emotions from Flask
+function loadEmotion() {
+    fetch('/getEmotions')
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data.emotions);
+
+            //create a flower for each saved emotion
+            for (let emotion of data.emotions) {
+
+                //get intensity
+                let intensity = Number(emotion.intensity);
+
+                //conver intensity into rotation speed
+                let speed = map(intensity, 0, 10, 0.45, 8);
+
+                //conver intensity into size
+                let size = map(intensity, 0, 10, 0.7, 1.4);
+
+                //get the flower color based on feeling and intensity
+                let baseColor = color(feelingColors[emotion.feeling]);
+
+                let intensityColor = lerpColor(
+                    color('#ffffff'),
+                    baseColor,
+                    map(intensity, 0, 10, 0.3, 1)
+                );
+
+                flowers.push({
+                    //pick a random position, leaving some space around the canvas edge
+                    x: random(50, width - 50),
+                    y: random(50, height - 50),
+                    growth: 1,
+                    color: intensityColor,
+                    speed: speed,
+                    size: size,
+
+                    //random choose 6-12 petals for this flowers
+                    petalCount: int(random(6, 13)),
+                    stage: "spinning",
+
+                    //control the pulse animation
+                    pulse: 1,
+                    pulseDirection: 1
+
+                });
+            }
+
+            console.log("Total flowers", flowers.length);
+        })
 }

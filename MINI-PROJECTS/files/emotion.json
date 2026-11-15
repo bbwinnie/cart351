@@ -1,18 +1,18 @@
 [
     {
-        "feeling": "happy",
+        "feeling": "Happy",
         "intensity": 5,
         "note": "This is a test",
         "timestamp": "2026-11-15T06:10:34.949Z"
     },
     {
-        "feeling": "anxious",
+        "feeling": "Anxious",
         "intensity": 5,
         "note": "",
         "timestamp": "2026-11-15T06:23:35.827Z"
     },
     {
-        "feeling": "happy",
+        "feeling": "Happy",
         "intensity": 4,
         "note": "",
         "timestamp": "2026-11-15T06:38:49.551Z"

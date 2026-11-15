@@ -9,6 +9,7 @@ let rightLeafX;
 let rightLeafY;
 let sway;
 
+//set the flower color
 let flowerColor = ['#F5C0F0',
     '#818cee',
     '#bfa2e8',
