@@ -5,14 +5,16 @@ let growth;
 //store the flowers and their information
 let flowers = [];
 
+let leaves = [];
+
 //set a flower color for each feeling
 const feelingColors = {
-    Happy: '#F5C0F0',
-    Sad: '#818cee',
-    Anxious: '#bfa2e8',
-    Calm: '#A9D8CF',
-    Angry: '#e79d98',
-    Hopeful: '#A9E5B1'
+    Happy: '#ec4edd',
+    Sad: '#3043eb',
+    Anxious: '#792be6',
+    Calm: '#2fdaba',
+    Angry: '#c9382d',
+    Hopeful: '#81e054'
 };
 
 //get the slider, the number display from HTML , form toggle button, feelingform , record button, panel form and records panel
@@ -66,12 +68,22 @@ plantFeeling.addEventListener("submit", function (event) {
     //conver intensity into size
     let size = map(intensity, 0, 10, 0.7, 1.4);
 
+    //change flower color based on intensity
+    let baseColor = color(feelingColors[selectedFeeling.value]);
+
+    //using p5 mix color lerpColor, max the dark color with white to get lighter color
+    let intensityColor = lerpColor(
+        color('#ffffff'),
+        baseColor,
+        map(intensity, 0, 10, 0.3, 1)
+    );
+
     //create new flower
     flowers.push({
         x: random(50, width - 50),
         y: random(50, height - 50),
         growth: 0,
-        color: feelingColors[selectedFeeling.value],
+        color: intensityColor,
         speed: speed,
         size: size,
         petalCount: int(random(6, 13)),
@@ -187,16 +199,46 @@ function setup() {
         let col = i % cols;
         let row = floor(i / cols);
 
+        let randomColor = random(Object.values(feelingColors));
+
+        let randomIntensity = random(0.45, 1);
+
+        let flowerColor = lerpColor(
+            color("#ffffff"),
+            color(randomColor),
+            randomIntensity
+        );
+
         flowers.push({
             x: (col + random(0.25, 0.75)) * cellWidth,
             y: (row + random(0.25, 0.75)) * cellHeight,
             size: random(0.7, 1.4),
-            color: random(Object.values(feelingColors)),
+            color: flowerColor,
             growth: 1,
-            speed: random(0.45, 1),
+            speed: randomIntensity,
             petalCount: int(random(6, 13)),
             stage: "spinning",
         });
+    }
+
+    //create 40 leaves across the whole garden
+
+    let leafCols = 8;
+    let leafRows = 5;
+
+    for (let i = 0; i < 40; i++) {
+
+        let col = i % leafCols;
+        let row = floor(i / leafCols);
+
+
+        leaves.push({
+            x: (col + random(0.25, 0.75)) / leafCols,
+            y: (row + random(0.25, 0.75)) / leafRows,
+            size: random(0.7, 1),
+            angle: random(0, 360),
+            off: random(0, 100)
+        })
     }
 }
 
@@ -205,7 +247,24 @@ function setup() {
  * Draw the garden and flower
  */
 function draw() {
+
     background('#f6f3e9');
+
+    for (let leaf of leaves) {
+        push();
+
+        let sway = map(noise(leaf.off), 0, 1, -8, 8);
+        leaf.off += 0.01;
+
+        translate(leaf.x * width + sway, leaf.y * height);
+        rotate(leaf.angle + sway);
+
+        noStroke();
+        fill('#a9c9a3');
+        ellipse(0, 0, 10 * leaf.size, 20 * leaf.size);
+
+        pop();
+    }
 
     //draw everyFlower in the garden
     for (let f of flowers) {
@@ -262,6 +321,8 @@ function draw() {
             pop()
         }
     }
+
+
 
 }
 

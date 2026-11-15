@@ -166,5 +166,47 @@
         "intensity": 7,
         "note": "",
         "timestamp": "2026-11-15T19:03:35.415Z"
+    },
+    {
+        "feeling": "Angry",
+        "intensity": 4,
+        "note": "",
+        "timestamp": "2026-11-15T19:43:09.663Z"
+    },
+    {
+        "feeling": "Angry",
+        "intensity": 10,
+        "note": "",
+        "timestamp": "2026-11-15T19:43:20.146Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 0,
+        "note": "",
+        "timestamp": "2026-11-15T19:43:28.186Z"
+    },
+    {
+        "feeling": "Angry",
+        "intensity": 0,
+        "note": "",
+        "timestamp": "2026-11-15T19:43:33.928Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 4,
+        "note": "",
+        "timestamp": "2026-11-15T19:45:22.578Z"
+    },
+    {
+        "feeling": "Happy",
+        "intensity": 0,
+        "note": "",
+        "timestamp": "2026-11-15T19:45:29.097Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 4,
+        "note": "",
+        "timestamp": "2026-11-15T19:47:09.369Z"
     }
 ]
