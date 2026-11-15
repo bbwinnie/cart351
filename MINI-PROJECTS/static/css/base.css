@@ -306,7 +306,10 @@ main:has(.plantColect) {
 }
 
 main:has(.plantCollect) {
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
+    align-items: stretch;
     padding: 15px 25px;
 }
 
@@ -389,6 +392,7 @@ main:has(.plantCollect) {
 
     width: 600px;
     max-width: calc(100% - 60px);
+    max-height: calc(100% - 110px);
     overflow-y: auto;
 
     background-color: #fffcf7;
@@ -434,4 +438,92 @@ main:has(.plantCollect) {
     border-bottom: 1px solid #d8d5ce;
     font-size: 14px;
     overflow-wrap: anywhere;
+}
+
+/*** Garden introduction ***/
+.gardenIntro {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+
+    text-align: center;
+    padding: 15px 10px 10px;
+    background-color: #f6f3e9;
+    border-radius: 0;
+}
+
+.gardenIntro h1 {
+    font-size: 32px;
+    color: #28765E;
+    margin: 0 0 5px;
+}
+
+.gardenIntro h2 {
+    font-size: 15px;
+    color: #667E70;
+    font-weight: normal;
+    margin: 0 0 5px;
+}
+
+.gardenIntro p {
+    font-size: 13px;
+    color: #8A9185;
+    margin: 0;
+}
+
+/***emotion color legend ***/
+
+.emotionLegend {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin-top: 12px;
+}
+
+.gardenIntro .legendItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #8A9185;
+}
+
+.gardenIntro .colorDot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.gardenIntro .colorDot.happy {
+    background-color: #f5c0f0;
+}
+
+.gardenIntro .colorDot.sad {
+    background-color: #818cee;
+}
+
+.gardenIntro .colorDot.anxious {
+    background-color: #BFA2E8;
+}
+
+.gardenIntro .colorDot.calm {
+    background-color: #A9D8CF;
+}
+
+.gardenIntro .colorDot.angry {
+    background-color: #E79D98;
+}
+
+.gardenIntro .colorDot.hopeful {
+    background-color: #a9e5b1;
 }

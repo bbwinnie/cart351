@@ -104,7 +104,14 @@ plantFeeling.addEventListener("submit", function (event) {
 
             if (data.saved) {
                 feelingPanel.classList.remove("open");
+
+                //reset the form
+                plantFeeling.reset();
+
+                //update the slider number
+                strengthValue.textContent = feelingStrength.value
             }
+
         })
 
 })
