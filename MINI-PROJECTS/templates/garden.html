@@ -2,10 +2,17 @@
 
 {% block scriptblock %}
 <script src="{{ url_for('static', filename='js/garden.js') }}" defer></script>
+<script src="{{url_for('static',filename='js/libraries/p5.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/libraries/p5.sound.min.js')}}"></script>
 {% endblock %}
 
 {% block content %}
+
+
 <section class="plantCollect">
+
+    <div id="p5gardenCanvas"></div>
+
     <div class="feelingContainer">
         <!--form done using more current tags... -->
         <form id="plantFeeling">
@@ -70,7 +77,7 @@
             </div>
 
             <div>
-                <input id="submitFeeling" type="submit" value="🌱Plant My Feeling" />
+                <input id="submitFeeling" type="submit" value="🌸Plant My Feeling" />
             </div>
         </form>
 

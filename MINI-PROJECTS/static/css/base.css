@@ -125,11 +125,23 @@ main {
 }
 
 /*** garden page ***/
+body:has(.plantCollect) {
+    height: 100vh;
+    overflow: hidden;
+}
+
+main:has(.plantColect) {
+    flex: 1;
+    min-height: 0;
+    justify-content: flex-start;
+    padding: 15px 25px;
+}
 
 .plantCollect {
     position: relative;
-    min-height: 100vh;
-    width: 100px;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
     align-self: stretch;
 }
 
@@ -272,4 +284,22 @@ main {
 #submitFeeling:hover {
     background-color: #668763;
     color: white;
+}
+
+/***  garden canvas ***/
+#p5gardenCanvas {
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 3px solid red;
+}
+
+main:has(.plantCollect) {
+    justify-content: flex-start;
+    padding: 15px 25px;
 }
