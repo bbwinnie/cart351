@@ -38,6 +38,11 @@ plantFeeling.addEventListener("submit", function (event) {
     //stop the page from refreshing
     event.preventDefault();
 
+    //get the current data and time 
+    let currentTime = new Date();
+    let timestamp = currentTime.toISOString();
+    // console.log(currentTime);
+
     //get the selected feeling
     let selectedFeeling = document.querySelector('input[name=feeling]:checked');
 
@@ -64,7 +69,25 @@ plantFeeling.addEventListener("submit", function (event) {
         size: size,
     });
 
-    console.log("Total flowers:", flowers.length);
+    //console.log("Total flowers:", flowers.length);
+
+    //get the form data
+    let formData = new FormData();
+
+    formData.append("feeling", selectedFeeling.value);
+    formData.append("intensity", feelingStrength.value);
+    formData.append("note", plantFeeling.querySelector("textarea").value);
+    formData.append("timestamp", timestamp);
+
+    //send the form data to flask
+    fetch("/saveEmotion", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
 
 })
 //console.log(feelingStrength.value);

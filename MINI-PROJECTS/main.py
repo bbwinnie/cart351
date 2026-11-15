@@ -21,14 +21,6 @@ def getEmotions():
    emotions = json.load(jsonFile)
    jsonFile.close()
 
-   #add the new emotion
-   emotions.apped(newEmotion)
-
-   #save the updated emotions to JSON
-   jsonFile = open("files/emotion.json","w")
-   json.dump(emtions,jsonFile,indent=4)
-   jsonFile.close()
-
    return{"emotions":emotions}
 
 #save a new emotion into JSON
