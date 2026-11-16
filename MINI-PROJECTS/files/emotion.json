@@ -46,5 +46,11 @@
         "intensity": 0,
         "note": "",
         "timestamp": "2026-11-15T22:36:08.627Z"
+    },
+    {
+        "feeling": "Anxious",
+        "intensity": 6,
+        "note": "",
+        "timestamp": "2026-11-16T20:49:58.122Z"
     }
 ]

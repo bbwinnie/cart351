@@ -19,6 +19,8 @@ Two course readings helped me think about the limits of this process. In The Poi
 
 My expected outcome is a gentle garden where people feel comfortable expressing themselves. I hope visitors can look back at happy memories, accept difficult emotions, and see that many different feelings can exist together. A flower cannot fix a problem, but it may offer a small moment of comfort and remind someone that they are not alone. 
 
+I also used ChatGPT during this project. I mainly used it to help me understand my professor's Flask lecture notes and exmple code. After understanding these concepts, I modified the code myself to connect Flask with JS and save emotion data in JSON. I also used ChatGPT to help me understand some errors during debugging.
+
 ## Project Screenshots
 
 1. Home Page
