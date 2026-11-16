@@ -25,7 +25,7 @@ My expected outcome is a gentle garden where people feel comfortable expressing 
 ![Home_page](./screenshots/homePage.png)
 
 2.Plant Your Feeling Form 
-![Plant_your_feeling_form](./screenshots/plantYourFeeling.png)
+![Plant_your_feeling](./screenshots/plantYourFeeling.png)
 
 3.Emotion Garden 
 ![Emotion_Garden](./screenshots/gardenPage.png)
