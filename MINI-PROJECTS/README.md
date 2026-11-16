@@ -22,19 +22,19 @@ My expected outcome is a gentle garden where people feel comfortable expressing 
 ## Project Screenshots
 
 1. Home Page
-![Home_page](./screenshots/home page.png)
+![Home_page](./screenshots/homePage.png)
 
 2.Plant Your Feeling Form 
-![Plant_your_feeling_form](./screenshots/plant your feeling.png)
+![Plant_your_feeling_form](./screenshots/plantYourFeeling.png)
 
 3.Emotion Garden 
-![Emotion_Garden](./screenshots/garden page.png)
+![Emotion_Garden](./screenshots/gardenPage.png)
 
 4.Emotion Records 
-![Emotion_Records](./screenshots/emotion records.png)
+![Emotion_Records](./screenshots/emotionRecords.png)
 
 5.Hover Tooltip
-![Hover_Tooltip](./screenshots/flower tooltip.png)
+![Hover_Tooltip](./screenshots/flowerTooltip.png)
 
 ## References and Resources 
 
