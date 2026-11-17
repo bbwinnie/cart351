@@ -1,0 +1,14 @@
+## MINI-PROJECT I FEEDBACK 
+
+# Pop Bubbles Against the World - Robert Pakulski 
+
+This project is inspired by Mimi Onuoha's The point of Collection and Pokemon Go. It uses a bubble-popping game to collect players' mouse movement data. I really like the visual design of this project. The buttons and layout look very clean, simple, and professional. At first, I thought I was just playing a normal game, but at the end, the game showed my mouse movements and other players' data. This was a surprising moment for me, and it made me realize how easily our data can be collected without us noticing. My only suggestion is to improve how the mouse movements are displayed. Right now, the data is shown as separate points, which makes the movement paths a little difficult to follow. It would be interesting to connect the points with lines, highlight the player's own path, and make it easier to compare with other players' movements. 
+
+## Constellations of Strangers - Yelena Arakelian
+
+Constellations of Strangers is an interactive website where people can anonymously share their thoughts and emotions. Using Flask, JSON, and JavaScript, each submission becomes a glowing star, and stars with the same emotion are connected. I really love the visual design, especially the pixel-style galaxy and glowing stars. This project has a similar concept to my Emotion Garden because we both turn people's emotions into something visual. However, I especially like how Yelena connects people who share similar feelings. It creates a sense of support and reminds us that we are not alone, even though everyone has different experiences. I think this is a really meaningful idea. My only suggestion would be to add a personal records board where users can look back at the thoughts and emotions they have shared. This could help users reflect on their feelings over time and make the experience more personal. 
+
+## Cloud Reading - Benjamin Macknofsky
+
+Cloud Reading is an interactive website where people can look at clouds and share what they think the clouds look like. I really like how this project connects to our class reading about finding patterns and meaning in what we see. Everyone can look at the same cloud but imagine something completely different. I think it is a creative idea to let people share their interpretations and explore what others see. I also really love the design of the website. The retro Windows-style background is very cute, and making the clouds move with p5.js makes the website more interactive and playful. My only suggestion would be to let users upload photos of real clouds they see in everyday life. Other people could then share what they imagine when looking at those clouds. I think this would make the project more personal and bring the experience into real world. 
+
